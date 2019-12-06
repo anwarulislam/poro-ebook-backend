@@ -50,7 +50,7 @@ class StoreController extends Controller
             "contact" => $request->contact,
         ]);
 
-        // dd($book);
+        dd($book);
 
         // return $book;
 
