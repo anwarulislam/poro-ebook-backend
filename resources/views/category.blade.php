@@ -30,12 +30,12 @@
                     @csrf
                     <div class="form-group">
                         <label>Category Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter book title">
+                        <input type="text" class="form-control" name="title" placeholder="Enter category title">
                     </div>
 
                     <div class="form-group">
                         <label>Category Description</label>
-                        <input type="text" class="form-control" name="description" placeholder="Enter book description">
+                        <input type="text" class="form-control" name="description" placeholder="Enter category description">
                     </div>
 
                     <div class="form-group">
