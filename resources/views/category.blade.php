@@ -29,6 +29,12 @@
                 <form method="post" action="/categories/create" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label>Category or Dokan</label> <br>
+                        <label class="radio-inline"><input type="radio" name="type" value="category" checked>Category</label>
+                        <label class="radio-inline"><input type="radio" name="type" value="dokan">Dokan</label>
+                    </div>
+
+                    <div class="form-group">
                         <label>Category Title</label>
                         <input type="text" class="form-control" name="title" placeholder="Enter category title">
                     </div>

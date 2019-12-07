@@ -17,8 +17,9 @@ class CreateStoreTable extends Migration
             $table->bigIncrements('id');
             $table->integer('cat_id')->unsigned()->nullable();
             $table->string('title');
+            $table->string('type')->default('bechakena');
             $table->longText('description');
-            $table->longText('price');
+            $table->longText('price')->nullable();
             $table->longText('contact');
             $table->longText('author')->nullable();
             $table->longText('thumbnail');

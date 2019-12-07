@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
-    public function getBooks(Request $request)
+    public function getBooks($type, Request $request)
     {
-        return Store::get();
+        return Store::where('type', $type)->get();
     }
 
     public function getBook($book_id, Request $request)
@@ -50,7 +50,7 @@ class StoreController extends Controller
             "contact" => $request->contact,
         ]);
 
-        dd($book);
+        // dd($book);
 
         // return $book;
 

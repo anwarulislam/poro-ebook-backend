@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
-    public function categories(Request $request)
+    public function categories($type, Request $request)
     {
-        return Category::get();
+        return Category::where('type', $type)->get();
     }
 
     public function createCategory(Request $request)
@@ -19,16 +19,17 @@ class CategoryController extends Controller
         $thumbnailName = null;
         if ($files = $request->file('thumbnail')) {
             $destinationPath = 'thumbnails'; // upload path
-            $pdfFile = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $pdfFile);
-            $fileName = "$pdfFile";
+            $imgFileName = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $imgFileName);
+            $thumbnailName = "$imgFileName";
         }
 
         $category = Category::create([
             "parent_id" => $request->parent_id,
             "title" => $request->title,
+            "type" => $request->type,
             "description" => $request->description,
-            "thumbnail_id" => $request->thumbnail
+            "thumbnail_id" => $thumbnailName
         ]);
 
         if ($thumbnailName) {
